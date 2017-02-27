@@ -8,18 +8,21 @@ def descargar_imagen(nombre):
 	### se le pasa el nombre de la imagen por parametros    ###
 	###########################################################
 	try:
-		#Se la ruta donde esta la imagen a descargar
+		# Se la ruta donde esta la imagen a descargar
 		URL='http://www.web.con/ruta/de/la/imagen/' + nombre
-		data = urlopen(URL).read() # descarga y almacena la imagen en una cadena
-		file = StringIO(data) # trata la cadena como un fichero
-		imagen = Image.open(file) # lee el fichero y devuelve la imagen
-		## Muestra la informacion de la imagen a descargar
+		data = urlopen(URL).read() # Trata la imagen como una cadena
+		# Maneja la cadena como un fichero
+		file = StringIO(data) 
+		imagen = Image.open(file) 
+		
+		# Muestra la informacion de la imagen a descargar
 		print ":: Tamanho ::"
 		print imagen.size # informa del tamanho
 		print ":: Formato ::"
 		print imagen.format # formato
 		print ":: Metadatos::"
 		print imagen.info # meta informacion
+		
 		# Ruta donde deseamos guardar la imagen en local
 		imagen.save('/ruta/donde/guardar/la/imagen/descargada' + nombre)
 		print "Imagen %s guardada", nombre
