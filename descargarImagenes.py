@@ -1,6 +1,7 @@
 from PIL import Image
 from urllib import urlopen
 from StringIO import StringIO
+import time
 
 def descargar_imagen(nombre):
 	###########################################################
@@ -32,8 +33,10 @@ def descargar_imagen(nombre):
 ####################################################
 ### Obtiene valores, que los convertira a nombre ###
 ####################################################
-maximo = 1000
+maximo = 15000
 aux = 0 
+cntEspera = 0
+
 while aux <= maximo:
 	# Convierte el numero en String
 	valor = str(aux)
@@ -47,3 +50,13 @@ while aux <= maximo:
 	print imagen
 	descargar_imagen(imagen)
 	aux +=1
+	cntEspera += 1
+	# Espera un tiempo cada x descargar, por seguridad
+	if cntEspera == 250:
+		print "Espera 1\" "
+		time.sleep(1);
+	
+	if cntEspera == 1000:
+		print "Espera 5\" "
+		time.sleep(5);
+		cntEspera = 0
