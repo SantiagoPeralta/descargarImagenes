@@ -52,11 +52,15 @@ while aux <= maximo:
 	aux +=1
 	cntEspera += 1
 	# Espera un tiempo cada x descargar, por seguridad
-	if cntEspera == 250:
+	if (cntEspera % 250) == 0:
 		print "Espera 1\" "
-		time.sleep(1);
+		time.sleep(1)
 	
 	if cntEspera == 1000:
 		print "Espera 5\" "
-		time.sleep(5);
+		time.sleep(5)
 		cntEspera = 0
+	
+	if (valor % maximo) == 0:
+		print "Espera 6\" "
+		time.sleep(6)
