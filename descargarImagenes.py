@@ -9,7 +9,7 @@ def descargar_imagen(nombre):
 	### se le pasa el nombre de la imagen por parametros    ###
 	###########################################################
 	try:
-		# Se la ruta donde esta la imagen a descargar
+		# Ruta donde esta la imagen a descargar
 		URL='http://www.web.con/ruta/de/la/imagen/' + nombre
 		data = urlopen(URL).read() # Trata la imagen como una cadena
 		# Maneja la cadena como un fichero
